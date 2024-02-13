@@ -1,0 +1,143 @@
+:root {
+	--primary: #6F89AF;
+	--primary-rgb: 111, 137, 175;
+	--danger: #CD4E4E;
+	
+	--background: #495057;
+	--text: #F8F9FA;
+	
+	--dark1: #343A40;
+	--dark2: #212529;
+	
+	--light1: #6C757D;
+	--light2: #ADB5BD;
+	--light3: #CED4DA;
+	--light4: #DEE2E6;
+	--light5: #E9ECEF;
+}
+
+body {
+	background-color: var(--background);
+	color: var(--text);
+}
+
+.row {
+	--bs-gutter-x: 0 !important;
+}
+
+.header, .footer {
+	padding: 1rem;
+}
+
+.content {
+	padding: 0 1rem;
+}
+
+.header {
+	background-image: linear-gradient(var(--light1), transparent);
+}
+
+.footer .copyright {
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	margin: 0.5rem 0;
+}
+
+img.logo {
+	margin-bottom: 1rem;
+	max-width: 200px;
+}
+
+.navbar {
+	background-color: var(--dark1);
+	border-radius: 0.25rem;
+}
+
+.navbar .navbar-brand {
+	color: var(--primary);
+}
+
+.navbar .nav-link {
+	color: var(--text);
+}
+
+.navbar .navbar-toggler {
+	border: 0;
+	border-radius: 0.25rem;
+	background-color: var(--background);
+}
+
+.welcome, .result {
+	text-align: center;
+}
+
+.form-control {
+	border: 0;
+	border-radius: 0.25rem;
+	color: var(--text);
+	background-color: var(--dark1);
+}
+
+.form-control:focus {
+	color: var(--text);
+	background-color: var(--dark2);
+	box-shadow: 0 0 0 .25rem rgba(var(--primary-rgb), 0.25);
+}
+
+.form-control::placeholder {
+	color: var(--light1);
+}
+
+.btn {
+	border: 0;
+	border-radius: 0.25rem;
+}
+
+.bg-primary, .btn-primary {
+	background-color: var(--primary) !important;
+}
+
+.btn-primary:focus {
+	box-shadow: 0 0 0 .25rem rgba(var(--primary-rgb), 0.25);
+}
+
+.text-primary {
+	color: var(--primary) !important;
+}
+
+.text-muted {
+	color: var(--light4) !important;
+}
+
+a {
+	color: var(--primary);
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.error {
+	color: var(--danger);
+	font-size: 0.875em;
+}
+
+.table {
+	color: var(--text);
+	background: var(--dark1);
+	border-radius: 0.25rem;
+}
+
+.table > :not(caption) > * > * {
+	border: 0;
+}
+
+.table-striped > tbody > tr:nth-of-type(2n+1) > * {
+	color: var(--light2);
+	background: var(--dark2);
+}
+
+.mx-n1 {
+	margin: 0 -0.25rem;
+}

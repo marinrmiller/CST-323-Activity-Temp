@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+	<head>
+        <meta charset="UTF-8">
+        <title>Library</title>
+    </head>
+	<body>
+	<!-- Content Populated by controller -->
+		<div layout:fragment="content" class="content">	
+		<!-- User Alerts -->	
+			<p class="result mb-3">
+				<span th:text="${result}">Default text</span>
+				<span class="error" th:text="${error}">Default text</span>
+			</p>
+			 <!-- Form for add and delete songs Starts Here -->
+				<form class="row justify-content-start" th:action="@{/deleteSong}" th:object="${songModel}" method="POST">
+				    <div class="d-flex">
+				        <!--ID Label and input-->
+				        <div class="form-group col-auto px-1">
+				            <label class="form-group col-auto px-1" for="id">ID:</label>
+				        </div>
+				        <div class="form-group col-auto px-1">
+				            <input id="idInput" class="form-control form-floating" type="number" step="1" th:field="*{id}" placeholder="ID" ></input>
+				            <span class="error" th:if="${#fields.hasErrors('id')}" th:errors="*{id}">ID Error</span>
+				        </div>
+				        <!-- Delete, Update and Add Song buttons -->
+				        <div class="form-group col">
+				            <button type="submit" class="btn btn-secondary px-3 mr-3">Delete</button>
+				            <button type="submit" class="btn btn-dark px-3" th:formaction="@{/updateSongForm}">Update</button>
+				            <button type="submit" class="float-end btn btn-dark" th:formaction="@{/song/addSong}"><i class="fa-solid fa-music"></i> Add Song</button> 
+				        </div>
+				    </div>
+				</form>
+				<br>
+			<!--Form End Here -->			
+		<!-- Songs Table -->
+	 		<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Song Id</th>
+							<th>Title</th>
+							<th>Album</th>
+							<th>Artist</th>
+							<th>Genre</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- makes sure song list is not null or empty -->
+					 	<tr th:if="${songs == null or songs.empty}">
+							<td class="result" colspan="5">No Songs Available</td>
+						</tr> 
+						<tr th:each="song:${songs}">
+							<td><h5 th:text="${song.id}">0000001</h5></td>
+							<td><h5 th:text="${song.title}">Product 1</h5></td>
+							<td><h5 th:text="${song.album}">1.00</h5></td>
+							<td><h5 th:text="${song.artist}">1</h5></td>
+							<td><h5 th:text="${song.genre}">1</h5></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		<!-- End of Songs Table -->
+		</div> 
+	</body>
+</html>

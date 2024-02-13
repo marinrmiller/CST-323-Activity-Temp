@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+	<head>
+		<title>Login to Sound Found</title>
+	</head>
+	<body>
+		<!-- Content Populated by controller -->
+		<div layout:fragment="content" class="content form-row">
+		<!-- User alerts -->
+		<p class="result mb-3">
+				<span th:text="${result}">Default text</span>
+			</p>
+		<p class="error result mb-0" th:if="${param.error}">Invalid username or password</p>
+      <!-- Form Starts Here -->
+			<form action="#" th:action="@{/login}" method="POST">
+				<!-- Username -->
+				<div class="form-group row">
+			    	<label for="username">Username:</label>
+					<input class="form-control" type="text" name="username" id="username" placeholder="Username"></input>
+			  	</div>
+				<!-- Password -->
+			  	<div class="form-group row">
+			    	<label for="password">Password:</label>
+					<input class="form-control" type="password" name="password" id="password" placeholder="********"></input>
+			  	</div>
+			  	<!-- Submit -->
+			  	<button type="submit" class="btn btn-dark mt-2" >Login</button>
+			</form>
+		<!--Form End Here -->
+		</div>
+	</body>
+</html>

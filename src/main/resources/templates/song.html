@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+	<head>
+		<title>Add a Song!</title>
+	</head>
+	<body>
+	<!-- Content Populated by controller -->
+		<div layout:fragment="content" class="content form-row">
+		<!-- User Alerts -->
+			<h2 class="title mb-4">
+				<span th:text="${title}">Default text</span></h2>
+			<p class="result mb-4">
+				<span th:text="${result}">Default text</span></p>
+			<!-- Form Starts Here -->
+			<!-- Check if is update is true to update page button takes you to -->
+			<form th:action="${isUpdate} ? '/song/updateSong' : '/song/addSong'" th:object="${songModel}" method="POST">
+  				<!-- If song id is there update to show ID field READONLY -->
+  				<div  th:if="${songModel.id > 0}" >
+	  				<div class="form-group row" th:if="${songModel.id >0}">
+					    <label for="title">ID:</label>
+						<input class="form-control" type="number" step="1" th:field="*{id}" placeholder="ID" readonly></input>
+						<span class="error" th:if="${#fields.hasErrors('id')}" th:errors="*{id}">ID Error</span>
+					</div>
+				</div>				
+				<!-- Title -->
+				<div class="form-group row">
+				    <label for="title">Title:</label>
+					<input class="form-control" type="text" th:field="*{title}" placeholder="Title"/>
+					<span class="error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</span>
+				</div>
+				<!-- Album -->
+				<div class="form-group row">
+				    <label for="album">Album:</label>
+					<input class="form-control" type="text" th:field="*{album}" placeholder="Album"/>
+					<span class="error" th:if="${#fields.hasErrors('album')}" th:errors="*{album}">Album Error</span>
+				</div>
+				<!-- Artist -->
+				<div class="form-group row">
+				    <label for="artist">Artist:</label>
+					<input class="form-control" type="text" th:field="*{artist}" placeholder="Artist"/>
+					<span class="error" th:if="${#fields.hasErrors('artist')}" th:errors="*{artist}">Artist Error</span>
+				</div>
+				<!-- Genre -->
+				<div class="form-group row">
+				    <label for="genre">Genre:</label>
+					<input class="form-control" type="text" th:field="*{genre}" placeholder="Genre"/>
+					<span class="error" th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}">Genre Error</span>
+				</div>
+				<button type="submit" class="btn btn-dark mt-2">Submit</button>
+			</form>
+			<!--Form End Here -->
+		</div>
+	</body>
+</html>

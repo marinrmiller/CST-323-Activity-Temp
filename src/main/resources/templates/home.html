@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+	<head>
+		<title>Welcome to Sound Found</title>
+	</head>
+	<body>
+		<div layout:fragment="content" class="content">
+			<h2 class="welcome" th:text="${welcome}">Default Text</h2>
+			<p class="result" th:text="${result}">Default text</p>
+		</div>
+	</body>
+</html>

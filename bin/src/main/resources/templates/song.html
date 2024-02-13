@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+	<head>
+		<title>Add a Song!</title>
+	</head>
+	<body>
+		<div layout:fragment="content" class="content form-row">
+			<!-- Form Starts Here -->
+			<form action="#" th:action="@{addSong}" th:object="${songModel}" method="post">
+				<!-- Title -->
+				<div class="form-group row">
+				    <label for="title">Title:</label>
+					<input class="form-control" type="text" th:field="*{title}" placeholder="Title"/>
+					<span class="error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</span>
+				</div>
+				<!-- Album -->
+				<div class="form-group row">
+				    <label for="album">Album:</label>
+					<input class="form-control" type="text" th:field="*{album}" placeholder="Album"/>
+					<span class="error" th:if="${#fields.hasErrors('album')}" th:errors="*{album}">Album Error</span>
+				</div>
+				<!-- Artist -->
+				<div class="form-group row">
+				    <label for="artist">Artist:</label>
+					<input class="form-control" type="text" th:field="*{artist}" placeholder="Artist"/>
+					<span class="error" th:if="${#fields.hasErrors('artist')}" th:errors="*{artist}">Artist Error</span>
+				</div>
+				<!-- Genre -->
+				<div class="form-group row">
+				    <label for="genre">Genre:</label>
+					<input class="form-control" type="text" th:field="*{genre}" placeholder="Genre"/>
+					<span class="error" th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}">Genre Error</span>
+				</div>
+				<button type="submit" class="btn btn-primary mt-2">Submit</button>
+				<div class="mt-1" th:if="${#fields.hasErrors('*')}">List of Errors:
+					<div th:each="err : ${#fields.errors('*')}">
+						<span class="error fieldError" th:text="${err}"></span>
+					</div>
+				</div>
+			</form>
+			<!--Form End Here -->
+		</div>
+	</body>
+</html>

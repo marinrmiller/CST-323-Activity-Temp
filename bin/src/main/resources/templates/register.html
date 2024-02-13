@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+	<head>
+		<title>Register for Sound Found</title>
+	</head>
+	<body>
+		<div layout:fragment="content" class="content form-row justify-content-center align-items-center" style="text-align: left;" >
+			<form action="#" th:action="@{doRegister}" th:object="${userModel}" method="post">
+				<!-- User Input -->
+				<div class="row form-row" style="margin: 0 -0.25rem;">
+					<div class="form-group col-md-6 px-1">
+						<label for="firstName">First Name:</label>
+						<input class="form-control" type="text" th:field="*{firstName}" placeholder="First Name">
+						<span class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{firstName}">Error</span>
+					</div>
+					<div class="form-group col-md-6 px-1">
+						<label for="Last Name">Last Name:</label>
+						<input class="form-control" type="text" th:field="*{lastName}" placeholder="Last Name" />
+						<span class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{lastName}">Error</span>
+					</div>
+				</div>
+				<div class="row form-row" style="margin: 0 -0.25rem;">
+					<div class="form-group col-md-6 px-1">
+						<label for="username">Username:</label>
+						<input class="form-control" type="text" th:field="*{username}" placeholder="Username"/>
+						<span class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Error</span>
+					</div>
+					<div class="form-group col-md-6 px-1">
+						<label for="password">Password:</label>
+						<input class="form-control" type="password" th:field="*{password}" placeholder="********"/>
+						<span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</span>
+					</div>
+				</div>
+				<div class="row form-row" style="margin: 0 -0.25rem;">
+					<div class="form-group col-md-6 px-1">
+						<label for="email">Email:</label>
+						<input class="form-control form-group" type="email" th:field="*{email}" placeholder="email@web.com" />
+						<span class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error</span>
+					</div>
+					<div class="form-group col-md-6 px-1">
+						<label for="phone" >Phone Number:</label>
+						<input class="form-control form-group " type="text" th:field="*{phoneNumber}"  placeholder="Use format *-***-***-****"/>
+						<span class="error" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Error</span>
+					</div>
+				</div>
+      			<button type="submit" class="btn btn-primary mt-2">Submit</button>
+			</form>				
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+	<head>
+		<title>Login to Sound Found</title>
+	</head>
+	<body>
+		<div layout:fragment="content" class="content form-row">
+			<!-- Form Starts Here -->
+			<p class="error result mb-0" th:text="${result}">Default text</p>
+			<form action="#" th:action="@{doLogin}" th:object="${userModel}" method="post">
+				<!-- Username -->
+				<div class="form-group row">
+			    	<label for="username">Username:</label>
+					<input class="form-control" type="text" th:field="*{username}" placeholder="Username"/>
+					<span class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Error</span>
+			  	</div>
+				<!-- Password -->
+			  	<div class="form-group row">
+			    	<label for="password">Password:</label>
+					<input class="form-control" type="password" th:field="*{password}" placeholder="********"/>
+					<span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</span>
+			  	</div>
+			  	<!-- Submit -->
+			  	<button type="submit" class="btn btn-primary mt-2">Submit</button>
+			  	<!-- Error List
+				<div class="mt-1" th:if="${#fields.hasErrors('*')}">List of Errors:
+					<div th:each="err : ${#fields.errors('*')}">
+						<span class="error fieldError" th:text="${err}"></span>
+					</div>
+				</div> -->
+			</form>
+			<!--Form End Here -->
+		</div>
+	</body>
+</html>

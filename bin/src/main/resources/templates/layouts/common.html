@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head>
+		<title>Common</title>
+	</head>
+	<body>
+		<!-- Common Header Fragment -->
+		<div class="header" th:fragment="header">
+			<div align="center">
+				<!-- Logo -->
+				<img class="logo" th:src="@{\images\logo.png}">
+			</div>
+			<!-- Navbar Start -->
+		 	<nav class="navbar navbar-expand-lg">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="/">SF</a>
+					<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#Nav">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+			    	<div class="collapse navbar-collapse justify-content-between" id="Nav">
+			    		<ul class="navbar-nav me-auto">
+			       			<li class="nav-item active"><a class="nav-link" href="/"><i class="fa-solid fa-house"></i> Home</a></li>
+			      		</ul>
+			    		<ul class="navbar-nav justify-content-end">
+			        		<li class="nav-item float-end"><a class="nav-link" href="/song/"><i class="fa-solid fa-music"></i> Add Song</a></li>
+			        		<li class="nav-item float-end"><a class="nav-link" href="/register/"><i class="fa-solid fa-user"></i> Sign Up</a></li>
+			        		<li class="nav-item float-end"><a class="nav-link" href="/login/"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+			      		</ul>
+			    	</div>
+			  	</div>
+			</nav>
+		</div>
+		<!-- Common Footer Fragment -->
+		<div class="footer" th:fragment="footer">
+			<span class="copyright">&copy; Marin, Jordan & Rebecca</span>
+		</div>
+	</body>
+</html>
